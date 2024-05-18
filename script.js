@@ -11,6 +11,7 @@ $('#getSettings').on('click', () => {
     $.ajax({
       url: `${apiUrl}/waInstance${idInstance}/getSettings/${apiToken}`,
       type: 'GET',
+      cors: true,
       success: function(data) {
         result.val(JSON.stringify(data, null, 4));
       },
@@ -31,6 +32,7 @@ $('#getStateInstance').on('click', () => {
     $.ajax({
       url: `${apiUrl}/waInstance${idInstance}/getStateInstance/${apiToken}`,
       type: 'GET',
+      cors: true,
       success: function(data) {
         result.val(JSON.stringify(data, null, 4));
       },
@@ -61,6 +63,7 @@ $('#sendMessage').on('click', () => {
     $.ajax({
       url: `${apiUrl}/waInstance${idInstance}/sendMessage/${apiToken}`,
       type: 'POST',
+      cors: true,
       contentType: "application/json; charset=utf-8",
       data: JSON.stringify(data),
       success: function(data) {
@@ -92,6 +95,7 @@ $('#sendFileByUrl').on('click', () => {
     $.ajax({
       url: `${apiUrl}/waInstance${idInstance}/sendFileByUrl/${apiToken}`,
       type: 'POST',
+      cors: true,
       contentType: "application/json; charset=utf-8",
       data: JSON.stringify(data),
       success: function(data) {
