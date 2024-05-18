@@ -15,10 +15,14 @@ $('#getSettings').on('click', () => {
       success: function(data) {
         result.val(JSON.stringify(data, null, 4));
       },
-      error: function(jqXHR, exception) {
-        result.val('Error :(');
+      error: function(xhr) {
+        const errorMessage = {
+          error: xhr.status,
+          message: xhr.statusText,
+        }
+        result.val(JSON.stringify(errorMessage, null, 4));
       }
-    })
+    });
   }
 });
 
@@ -36,12 +40,16 @@ $('#getStateInstance').on('click', () => {
       success: function(data) {
         result.val(JSON.stringify(data, null, 4));
       },
-      error: function(jqXHR, exception) {
-        result.val('Error :(');
+      error: function(xhr) {
+        const errorMessage = {
+          error: xhr.status,
+          message: xhr.statusText,
+        }
+        result.val(JSON.stringify(errorMessage, null, 4));
       }
-    })
+    });
   }
-})
+});
 
 $('#sendMessage').on('click', () => {
   // POST {{apiUrl}}/waInstance{{idInstance}}/sendMessage/{{apiTokenInstance}}
@@ -68,10 +76,17 @@ $('#sendMessage').on('click', () => {
       data: JSON.stringify(data),
       success: function(data) {
         result.val(JSON.stringify(data, null, 4));
+      },
+      error: function(xhr) {
+        const errorMessage = {
+          error: xhr.status,
+          message: xhr.statusText,
+        }
+        result.val(JSON.stringify(errorMessage, null, 4));
       }
-    })
+    });
   }
-})
+});
 
 
 $('#sendFileByUrl').on('click', () => {
@@ -100,7 +115,14 @@ $('#sendFileByUrl').on('click', () => {
       data: JSON.stringify(data),
       success: function(data) {
         result.val(JSON.stringify(data, null, 4));
+      },
+      error: function(xhr) {
+        const errorMessage = {
+          error: xhr.status,
+          message: xhr.statusText,
+        }
+        result.val(JSON.stringify(errorMessage, null, 4));
       }
-    })
+    });
   }
-})
+});
